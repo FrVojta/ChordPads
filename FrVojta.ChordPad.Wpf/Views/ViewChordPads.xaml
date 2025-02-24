@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="FrVojta.ChordPads.Wpf.Views.ViewChordPads"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FrVojta.ChordPads.Wpf.Views"
+             xmlns:vm="clr-namespace:FrVojta.ChordPads.Wpf.Vm"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="./../Resources/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <UserControl.DataContext>
+        <vm:VmChordPads/>
+    </UserControl.DataContext>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Button Grid.Column="3" Grid.Row="0" Grid.ColumnSpan="1"
+                Style="{StaticResource ChordKey}"
+                Tag="V" Content="{Binding ChordNames[4]}"
+                PreviewMouseDown="ChordPad_PreviewMouseDown"
+                PreviewMouseUp="ChordPad_PreviewMouseUp"
+                />
+        <Button Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="1"
+                Style="{StaticResource ChordKey}"
+                Tag="I" Content="{Binding ChordNames[0]}"
+                PreviewMouseDown="ChordPad_PreviewMouseDown"
+                PreviewMouseUp="ChordPad_PreviewMouseUp"
+                />
+        <Button Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="1"
+                Style="{StaticResource ChordKey}"
+                Tag="IV" Content="{Binding ChordNames[3]}"
+                PreviewMouseDown="ChordPad_PreviewMouseDown"
+                PreviewMouseUp="ChordPad_PreviewMouseUp"
+                />
+        <Button Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1"
+                Style="{StaticResource ChordKey}"
+                Tag="VI#" Content="{Binding ChordNames[6]}"
+                PreviewMouseDown="ChordPad_PreviewMouseDown"
+                PreviewMouseUp="ChordPad_PreviewMouseUp"
+                />
+        <Button Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="1"
+                Style="{StaticResource ChordKey}"
+                Tag="iii" Content="{Binding ChordNames[2]}"
+                PreviewMouseDown="ChordPad_PreviewMouseDown"
+                PreviewMouseUp="ChordPad_PreviewMouseUp"
+                />
+        <Button Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="1"
+                Style="{StaticResource ChordKey}"
+                Tag="vi" Content="{Binding ChordNames[5]}"
+                PreviewMouseDown="ChordPad_PreviewMouseDown"
+                PreviewMouseUp="ChordPad_PreviewMouseUp"
+                />
+        <Button Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="1"
+                Style="{StaticResource ChordKey}"
+                Tag="ii" Content="{Binding ChordNames[1]}"
+                PreviewMouseDown="ChordPad_PreviewMouseDown"
+                PreviewMouseUp="ChordPad_PreviewMouseUp"
+                />
+        <Button Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="1"
+                Style="{StaticResource ChordKey}"
+                Tag="V7" Content="{Binding ChordNames[7]}"
+                PreviewMouseDown="ChordPad_PreviewMouseDown"
+                PreviewMouseUp="ChordPad_PreviewMouseUp"
+                />
+    </Grid>
+</UserControl>

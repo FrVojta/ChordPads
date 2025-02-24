@@ -4,9 +4,54 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FrVojta.ChordPads.Wpf"
+        xmlns:view="clr-namespace:FrVojta.ChordPads.Wpf.Views"
+        xmlns:vm="clr-namespace:FrVojta.ChordPads.Wpf.Vm"
         mc:Ignorable="d"
         Title="CHORD PADS" Height="540" Width="960">
-    <Grid>
+    
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="./Resources/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
 
+    <Window.DataContext>
+        <vm:VmMain/>
+    </Window.DataContext>
+    
+    <Grid Margin="4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <view:ViewNotePads Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="4"
+                           DataContext="{Binding NotePads1}"
+                           BaseNote="{Binding BaseNote}"
+                           />
+        <view:ViewNotePads Grid.Column="4" Grid.Row="4" Grid.ColumnSpan="4"
+                           DataContext="{Binding NotePads2}"
+                           BaseNote="{Binding BaseNote}"
+                           />
+        <view:ViewBarBeats Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
+                           DataContext="{Binding Beats}"
+                           />
+        <view:ViewChordPads Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="6" Grid.RowSpan="3"
+                           />
     </Grid>
 </Window>
